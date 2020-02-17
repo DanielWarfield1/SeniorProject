@@ -4,21 +4,20 @@
 
 void setup() {
   SPIcomm_setup();
-  
 }
 
 void loop() {
 
-  long delayTime = 100000000;
+  long delayTime = 1000;
   
   SPI.begin();
-//  SPI.transfer(B00000000);
+  SPI.transfer(B00000000);
   digitalWrite(SS,HIGH);
   delayMicroseconds(1);
   digitalWrite(SS,LOW);
   SPI.end();
 
-  delayMicroseconds(delayTime);
+  delay(delayTime);
 
   SPI.begin();
   SPI.transfer(B10101010);
@@ -27,16 +26,16 @@ void loop() {
   digitalWrite(SS,LOW);
   SPI.end();
 
-  delayMicroseconds(delayTime);
+  delay(delayTime);
 
   SPI.begin();
-//  SPI.transfer(B11111111);
+  SPI.transfer(B11111111);
   digitalWrite(SS,HIGH);
   delayMicroseconds(1);
   digitalWrite(SS,LOW);
   SPI.end();
 
-  delayMicroseconds(delayTime);
+  delay(delayTime);
   
 }
 
